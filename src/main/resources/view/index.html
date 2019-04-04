@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>抢答游泳知识，赢取健康大礼！</title>
+    <link rel="stylesheet" type="text/css" href="/lib/css/answer.css" />
+    <style type="text/css">
+        .demo {
+            width: 100%;
+        }
+        .hn{
+            display: inline-block;
+            /*text-align: center;*/
+        }
+        .nh{
+            display: inline-block;
+            margin-top: 7px !important;
+        }
+    </style>
+    <script type="text/javascript" src="/lib/js/jquery.min.js"></script>
+    <!--微信分享相关js-->
+    <!-- 必须引入的文件-->
+
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+    <script type="text/javascript" >
+        function aa() {
+            alert("123")
+        }
+    </script>
+</head>
+
+<body id="ijn">
+
+<div class="demo" >
+    <div id='quiz-container'></div>
+
+</div>
+<div id="score" style="visibility: hidden;">
+    一起来“健康陕西”挑战答题王吧！
+</div>
+<div class="css-panes">
+    <div style="display:block"></div>
+</div>
+<script>
+    //放题的
+
+
+    $(function() {
+        $('#quiz-container').jquizzy({
+            questions: init.questions
+        });
+    });
+
+    var init = {
+        'questions': [{
+            'question': '关于游泳运动，说法正确的是？',
+            'answers': ['<span class="hn">A 、可分为竞技游泳和实用游泳，竞技游泳是奥林匹克运动会中的第二大项目。</span>', '<span class="hn">B 、是人类进化过程中，逐渐学会的技能，没有什么危险性。</span>', '<span  class="nh"style="margin-top: 7px !important;line-height: 12px;"> C 、是青壮年适合的运动，老人和青少年不太适合。</span>', '	<span class="nh">D 、现代游泳起源于中国。</span>'],
+            'correctAnswer': 1
+        },
+            {
+                'question': '游泳是人在水上靠自力漂浮，借自身肢体的动作在水中运动前进的技能，下列说法错误的是？',
+                'answers': ['<span class="hn">A 、竞技游泳包括蝶泳、仰泳、蛙泳和自由泳四种泳姿的竞速项目，及花样游泳等。</span>', '<span class="hn">B 、游泳运动员级别分为:三级、二级、一级、健将、国际健将。</span>', '<span class="hn">C 、国际标准游泳池长50米，宽至少21米，深1.80米以上。</span>', '<span  class="nh"style="margin-top: 7px !important;line-height: 12px;" >D 、奥运会正式游泳比赛项目最长距离是2000米。</span>'],
+                'correctAnswer': 4
+            },
+            {
+                'question': '游泳时，人体在水中最接近流线型身体姿势是？',
+                'answers': [' <span class="nh">A 、四肢舒展开。</span>', '<span class="nh">B 、两腿弯曲蹬水。</span> ', '<span class="nh">C 、两手两臂尽可能向前伸直、双手并拢。</span>', ' <span class="nh">D 、两臂打开、五指张开。</span>'],
+                'correctAnswer': 3
+            },
+            {
+                'question': '游泳运动被誉为全民健身第一运动，关于游泳的益处说法不正确的是？',
+                'answers': ['<span class="nh"style="margin-top: 7px !important;line-height: 12px;">A 、游泳是一种全身性的锻炼，老少皆宜，益处多多。</span>', '<span class="hn">B 、游泳是高危险性体育项目，高手可以不需要有相关安全措施。</span>', '<span class="hn">C 、游泳20分钟相当于跑步60分钟，大约10分钟就能消耗将近100卡路里。</span>', '<span class="hn">D 、长期游泳可锻炼意志品质，培养勇敢顽强、吃苦耐劳、不怕困难的品质。</span>'],
+                'correctAnswer': 2
+            },
+            {
+                'question': '古代奥运会没有游泳项目，从哪一届奥运会起，游泳被列入了奥运会正式项目？',
+                'answers': ['<span class="nh">A 、1896年雅典奥运会</span>', '<span class="nh">B 、1900年巴黎奥运会</span>', '<span class="nh">C 、1904年圣路易斯奥运会</span>', '<span class="nh">D 、1908年伦敦奥运会</span> '],
+                'correctAnswer': 1
+            },
+            {
+                'question': '下面适合关节炎患者的运动项目是？',
+                'answers': ['<span class="nh">A 、跳绳</span>', '<span class="nh">B 、舞蹈</span>', '<span class="nh">C 、爬山</span>', '<span class="nh">D 、游泳</span>'],
+                'correctAnswer': 4
+            },
+            {
+                'question': '下面哪位游泳运动员，帮助陕西游泳实现了全运会奖牌零突破？',
+                'answers': ['<span class="nh">A 、孙杨</span>', '<span class="nh">B 、张丽 </span>', '<span class="nh">C 、贺贇</span>', '<span class="nh">D 、司雅杰</span>'],
+                'correctAnswer': 3
+            },
+            {
+                'question': '观看游泳比赛时，下面哪些行为是不文明的？',
+                'answers': ['<span class="nh">A 、保持安静，不吃东西，不大声喧哗。</span>', '<span class="nh">B 、不使用闪光灯。</span>', '<span class="nh">C 、不喝倒彩。</span>', '<span class="nh">D 、可以吹哨为运动员加油助威。</span>'],
+                'correctAnswer': 4
+            }, {
+                'question': '关于陕西省游泳运动管理中心，说法准确的是？',
+                'answers': ['<span class="hn">A 、是省体育局的下属单位，负责促进我省游泳、跳水事业的发展。</span>', '<span class="hn">B 、现有跳水、游泳两个省级运动队，宝鸡市游泳跳水馆是两支队伍的训练基地。</span> ', '<span class="nh">C 、办公地点在陕西省体育场。</span>', '<span class="hn">D 、可以承办省级游泳、跳水比赛，不具有承办国际、国内大型游泳、跳水比赛的能力。</span>'],
+                'correctAnswer': 1
+            }, {
+                'question': '关于陕西飞鱼青少年体育俱乐部，说法不准确的是？',
+                'answers': ['<span  class="nh"style="margin-top: 7px !important;line-height: 12px;">A 、是隶属于陕西省游泳中心的民办非企业单位。</span>', '<span  class="nh"style="margin-top: 7px !important;line-height: 12px;">B 、发掘培养的好的游泳运动苗子只能进专业队。</span>', '<span class="hn">C 、是从事于我省游泳队、跳水队日常训练和比赛后勤服务和游泳全民健身服务社会公益单位。</span>', '<span class="hn">D 、该俱乐部发展氛围、师资力量、基础设施、项目生态等在省内都是独一无二。</span>'],
+                'correctAnswer': 2
+            }
+        ]
+    };
+
+    (function($) {
+        $.fn.jquizzy = function(settings) {
+            var defaults = {
+                questions: null,
+                startImg: 'images/start.gif',
+                endText: '结果页面',
+                shortURL: null,
+                sendResultsURL: null,
+                resultComments: {
+                    perfect: '<a href="#" >您已经击败了全省&nbsp<span class="omho">99%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    excellent: '<a href="#" >您已经击败了全省&nbsp<span class="omho">96%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    bad: '<a href="#" >您已经击败了全省&nbsp<span class="omho">93%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    average: '<a href="#" >您已经击败了全省&nbsp<span class="omho">76%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    poor: '<a href="#" >您已经击败了全省&nbsp<span class="omho">67%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    worst:'<a href="#" >您已经击败了全省&nbsp<span class="omho">54%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    five:'<a href="#" >您已经击败了全省&nbsp<span class="omho">43%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    four: '<a href="#" >您已经击败了全省&nbsp<span class="omho">36%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    there: '<a href="#" >您已经击败了全省&nbsp<span class="omho">27%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    two: '<a href="#" >您已经击败了全省&nbsp<span class="omho">19%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    one: '<a href="#" >您已经击败了全省&nbsp<span class="omho">7%</span>&nbsp用户<span class="ds_li"></span></a>',
+                    zero: '<a href="#" >您已经击败了全省&nbsp<span class="omho">0%</span>&nbsp用户<span class="ds_li"></span></a>',
+//					zero: '<a href="#" >您已经击败了全省&nbsp<span class="omho">0%</span>&nbsp用户<span class="ds_li"><span class="lik_1">45%喜欢</span><span class="linke_2">65%不喜欢</span></span></a>',
+                }
+
+            };
+
+            var config = $.extend(defaults, settings);
+            if(config.questions === null) {
+                $(this).html('<div class="intro-container slide-container"><h2 class="qTitle">Failed to parse questions.</h2></div>');
+                return;
+            }
+            var superContainer = $(this),
+                answers = [],
+                introFob = '<div class="intro-container slide-container"><a class="nav-start" href="#"><br/><span id="ijk"></span></a></div>	',
+                exitFob = '<div class="results-container slide-container"><div class="question-number">' + config.endText +'</div><div class="result-keeper"></div><div class=""><a href="bao.html" ></a></div></div><div class="notice">请选择一个选项！</div><div class="progress-keeper" ><div class="progress"></div></div>',
+                contentFob = '',
+                questionsIteratorIndex,
+                answersIteratorIndex;
+            superContainer.addClass('main-quiz-holder');
+            for(questionsIteratorIndex = 0; questionsIteratorIndex < config.questions.length; questionsIteratorIndex++) {
+                contentFob += '<div class="slide-container"><div  class="question-numberr">' + (questionsIteratorIndex + 1)+'</div><div class="question-number" >' + (questionsIteratorIndex + 1) + '/' + config.questions.length + '</div><div class="question">' + config.questions[questionsIteratorIndex].question + '</div><ul class="answers">';
+                for(answersIteratorIndex = 0; answersIteratorIndex < config.questions[questionsIteratorIndex].answers.length; answersIteratorIndex++) {
+                    contentFob += '<li>' + config.questions[questionsIteratorIndex].answers[answersIteratorIndex] + '</li>';
+                }
+                contentFob += '</ul><div class="nav-container">';
+                if(questionsIteratorIndex !== 0) {
+                    contentFob += '<div class="prev"><a class="nav-previous" href="#";</a></div>';
+                }
+                if(questionsIteratorIndex < config.questions.length - 1) {
+                    contentFob += '<div class="next"><a class="nav-next" href="#" ;</a></div>';
+                } else {
+                    contentFob += '<div class="next final"><a class="nav-show-result" href="#"</a></div>';
+                }
+                contentFob += '</div></div>';
+                answers.push(config.questions[questionsIteratorIndex].correctAnswer);
+            }
+            superContainer.html(introFob + contentFob + exitFob);
+            var progress = superContainer.find('.progress'),
+                progressKeeper = superContainer.find('.progress-keeper'),
+                notice = superContainer.find('.notice'),
+                progressWidth = progressKeeper.width(),
+                userAnswers = [],
+                questionLength = config.questions.length,
+                slidesList = superContainer.find('.slide-container');
+//        判断答案
+            function checkAnswers() {
+                var resultArr = [],
+                    flag = false;
+                for(i = 0; i < answers.length; i++) {
+                    if(answers[i] == userAnswers[i]) {
+                        flag = true;
+                    } else {
+                        flag = false;
+                    }
+                    resultArr.push(flag);
+                }
+                return resultArr;
+            }
+
+            function roundReloaded(num, dec) {
+                var result = Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
+                return result;
+            }
+//      /*判断分数*/
+            function judgeSkills(score) {
+                var _score = 100;
+                $.ajax({
+                    type: "GET",
+                    async: false,
+                    url: "/luck/getScore/hd-002",
+                    success: function (res) {
+                        if (res.code === 200) {
+                            _score = res.data;
+                        } else {
+                            console.info(res.msg);
+                        }
+                    }
+                });
+                if (score >= _score) {
+                    var _res = '';
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "/wx/getUrl/hd-002",
+                        success: function (res) {
+                            if (score > 10) {
+                                score = score - Math.floor(Math.random()*10+1);
+                            }
+                            _res = '<a class="cct" href="'+ res +'"  style":color:red;">您击败了全省&nbsp'+ score +'%&nbsp用户,关注我们</br><span class="omhop">点击摇奖</span><span class="ds_li"></span></a>';
+                        }
+                    });
+                    return _res;
+                }
+
+
+                var returnString;
+                if(score>=100)  return config.resultComments.perfect;
+
+
+//			{}
+                else
+                {
+                    $(".hiss").css('display','none');
+
+                }
+                if(score>=90)  return config.resultComments.excellent;
+
+//			{}
+                else
+                {
+                    $(".hiss").css('display','none');
+
+                }
+                if(score >=80) return config.resultComments.bad;
+                else
+                {
+                    $(".hiss").css('display','block');
+                }
+                if(score >=70) return config.resultComments.average;
+                else
+                {
+
+                    $(".hiss").css('display','block');
+                }
+                if(score >=60) return config.resultComments.poor;
+                else
+                {
+                    $(".hiss").css('display','block');
+                }
+                if(score>=50) return config.resultComments.worst;
+                else
+                {
+                    $(".hiss").css('display','block');
+                }
+                if(score>=40) return config.resultComments.four;
+                else
+                {
+                    $(".hiss").css('display','block');
+                }
+                if(score>=30) return config.resultComments.there;
+                else
+                {
+                    $(".hiss").css('display','block');
+                }
+                if(score>=20) return config.resultComments.two;
+                else
+                {
+                    $(".hiss").css('display','block');
+                }
+                if(score>=10) return config.resultComments.one;
+                else
+                {
+                    $(".hiss").css('display','block');
+                }
+                if(score>=0) return config.resultComments.zero;
+                else
+                {
+                    $(".hiss").css('display','block');
+                }
+            }
+            progressKeeper.hide();
+            notice.hide();
+            slidesList.hide().first().fadeIn(500);
+            superContainer.find('li').click(function() {
+                var thisLi = $(this);
+                if(thisLi.hasClass('selected')) {
+                    thisLi.removeClass('selected');
+                } else {
+                    thisLi.parents('.answers').children('li').removeClass('selected');
+                    thisLi.addClass('selected');
+                }
+
+            });
+
+            /*开始*/
+            superContainer.find('.nav-start').click(function() {
+                $(this).parents('.slide-container').fadeOut(500,
+                    function() {
+                        $(this).next().fadeIn(500);
+                        progressKeeper.fadeIn(500);
+                    });
+                return false;
+            });
+            /*下一题*/
+            superContainer.find('.next').click(function() {
+                if($(this).parents('.slide-container').find('li.selected').length === 0) {
+                    notice.fadeIn(300);
+                    return false;
+                }
+                notice.hide();
+                $(this).parents('.slide-container').fadeOut(500,
+                    function() {
+                        $(this).next().fadeIn(500);
+                    });
+                progress.animate({
+                        width: progress.width() + Math.round(progressWidth / questionLength)
+                    },
+                    500);
+                return false;
+            });
+//		上一题
+            superContainer.find('.prev').click(function() {
+                notice.hide();
+                $(this).parents('.slide-container').fadeOut(500,
+                    function() {
+                        $(this).prev().fadeIn(500);
+                    });
+                progress.animate({
+                        width: progress.width() - Math.round(progressWidth / questionLength)
+                    },
+                    500);
+                return false;
+
+            });
+//		完成
+            superContainer.find('.final').click(function() {
+                if($(this).parents('.slide-container').find('li.selected').length === 0) {
+                    notice.fadeIn(300);
+                    return false;
+                }
+                superContainer.find('li.selected').each(function(index) {
+                    userAnswers.push($(this).parents('.answers').children('li').index($(this).parents('.answers').find('li.selected')) + 1);
+                });
+                if(config.sendResultsURL !== null) {
+                    var collate = [];
+                    for(r = 0; r < userAnswers.length; r++) {
+                        collate.push('{"questionNumber":"' + parseInt(r + 1, 10) + '", "userAnswer":"' + userAnswers[r] + '"}');
+                    }
+                    $.ajax({
+                        type: 'POST',
+                        url: config.sendResultsURL,
+                        data: '{"answers": [' + collate.join(",") + ']}',
+                        complete: function() {
+                            console.log("OH HAI");
+                        }
+                    });
+                }
+                progressKeeper.hide();
+                //注掉转发才出成绩
+//			var   score;
+                var results = checkAnswers(),
+                    resultSet = '',
+                    trueCount = 0,
+                    shareButton = '',
+
+                    url;
+                if(config.shortURL === null) {
+                    config.shortURL = window.location
+                };
+                for(var i = 0,
+                        toLoopTill = results.length; i < toLoopTill; i++) {
+                    if(results[i] === true) {
+                        trueCount++;
+                        isCorrect = true;
+                    }
+                    resultSet += '<div class="result-row">' + (results[i] === true ? "<div class='correct'>" + (i + 1) + "<span></span></div>" : "<div class='wrong'>" + (i + 1) + "<span></span></div>");
+                    resultSet += '<div class="resultsview-qhover">' + config.questions[i].question;
+                    resultSet += "<ul>";
+                    for(answersIteratorIndex = 0; answersIteratorIndex < config.questions[i].answers.length; answersIteratorIndex++) {
+                        var classestoAdd = '';
+                        if(config.questions[i].correctAnswer == answersIteratorIndex + 1) {
+                            classestoAdd += 'right';
+                        }
+                        if(userAnswers[i] == answersIteratorIndex + 1) {
+                            classestoAdd += ' selected';
+                        }
+                        resultSet += '<li class="' + classestoAdd + '">' + config.questions[i].answers[answersIteratorIndex] + '</li>';
+                    }
+                    resultSet += '</ul></div></div>';
+                }
+                score = roundReloaded(trueCount / questionLength * 100, 2);
+
+                resultSet = '<h2 class="qTitle">' + judgeSkills(score) + '<br/><span  id="oops" class="grade_detail" >  ' + score + '</span></h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"><span class="cyo"><a href="index.html">重答一次</a></span><span class="cyop"><a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIxNjIzMTY5NA==&scene=126#wechat_redirect">关注我们</a></br><span class="over_btn_detail over_share" id="opo" >分享好友</span>	<div class="share_wrap" style="border: 1px solid red;"><div class="share_text"><img class="share_img" src="images/swimming-share.png"></div></div> </span> <span class="cq"> </span> <div class="popu"> </div></div>';
+                $("#score").text("aaa")
+                superContainer.find('.result-keeper').html(resultSet).show(500);
+                superContainer.find('.resultsview-qhover').hide();
+                superContainer.find('.result-row').hover(function() {
+                        $(this).find('.resultsview-qhover').show();
+                    },
+                    function() {
+                        $(this).find('.resultsview-qhover').hide();
+                    });
+                $(this).parents('.slide-container').fadeOut(500,
+                    function() {
+                        $(this).next().fadeIn(500);
+                    });
+                return false;
+
+
+            });
+            $('.demo').on('click','.over_share',function () {
+                $('.share_wrap').css('display','block');
+
+                document.title = '我已经答了'+ score +'分快来超越我';
+
+            });
+
+        };
+
+    })(jQuery);
+    //直接分享
+
+    var title=$("document").attr("title");
+    $.ajax({
+        url: "http://www.jksxr.cn/weiXinShare.action",
+        type: 'post',
+        success: function(ress) {
+
+            var ress = eval("(" + ress + ")")
+
+            wx.config({
+                debug: false,
+                appId: ress.wxuser,
+                timestamp: ress.timestamp,
+                nonceStr: ress.noncestr,
+                signature: ress.signature,
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+            });
+            wx.ready(function() {
+                wx.onMenuShareTimeline({
+                    title:'抢答游泳知识，赢取健康大礼！' , // 分享标题
+                    desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                    link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                    imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                    type: 'link', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function() {
+                        // 用户确认分享后执行的回调函数
+                        alert('分享成功');
+                    },
+                    cancel: function() {
+                        // 用户取消分享后执行的回调函数
+                        alert('取消分享');
+                    }
+                });
+
+
+
+                wx.onMenuShareQQ({
+                    title:'抢答游泳知识，赢取健康大礼！' , // 分享标题
+                    desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                    link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                    imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                    success: function() {
+                        // 用户确认分享后执行的回调函数
+                        alert('分享成功');
+                    },
+                    cancel: function() {
+                        // 用户取消分享后执行的回调函数
+                        alert('取消分享');
+                    }
+                });
+                wx.onMenuShareWeibo({
+                    title:'抢答游泳知识，赢取健康大礼！' , // 分享标题
+                    desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                    link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                    imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                    success: function() {
+                        // 用户确认分享后执行的回调函数
+                        alert('分享成功');
+                    },
+                    cancel: function() {
+                        // 用户取消分享后执行的回调函数
+                        alert('取消分享');
+                    }
+                });
+                wx.onMenuShareQZone({
+                    title:'抢答游泳知识，赢取健康大礼！' , // 分享标题
+                    desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                    link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                    imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                    success: function() {
+                        // 用户确认分享后执行的回调函数
+                        alert('分享成功');
+                    },
+                    cancel: function() {
+                        // 用户取消分享后执行的回调函数
+                        alert('取消分享');
+                    }
+                });
+                //分享朋友圈
+                wx.onMenuShareAppMessage({
+                    title:'抢答游泳知识，赢取健康大礼！' , // 分享标题
+                    desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                    link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                    imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                    type: 'link', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function() {
+                        // 用户确认分享后执行的回调函数
+                        alert('分享成功');
+                    },
+                    cancel: function() {
+                        // 用户取消分享后执行的回调函数
+                        alert('取消分享');
+                    }
+                });
+
+            });
+            //	wx.error(function(res) {
+            //				alert(res.errMsg); // 正式环境记得关闭啊！！！！
+            //				});
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //微信分享
+
+
+
+    //答完题后分享的
+
+    $(".demo").on("click",function(){
+
+        var resx=$("#oops").html();
+        $.ajax({
+            url: "http://www.jksxr.cn/weiXinShare.action",
+            type: 'post',
+            success: function(ress) {
+
+                var ress = eval("(" + ress + ")")
+
+                wx.config({
+                    debug: false,
+                    appId: ress.wxuser,
+                    timestamp: ress.timestamp,
+                    nonceStr: ress.noncestr,
+                    signature: ress.signature,
+                    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+                });
+                wx.ready(function() {
+                    wx.onMenuShareTimeline({
+                        title:'抢答游泳知识，赢取健康大礼！我答了'+ resx +'分快来一起领礼包！' , // 分享标题
+                        desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                        link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                        imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                        type: 'link', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+                            alert('分享成功');
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                            alert('取消分享');
+                        }
+                    });
+
+
+
+                    wx.onMenuShareQQ({
+                        title:'抢答游泳知识，赢取健康大礼！我答了'+ resx +'分快来一起领礼包！' , // 分享标题
+                        desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                        link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                        imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+                            alert('分享成功');
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                            alert('取消分享');
+                        }
+                    });
+                    wx.onMenuShareWeibo({
+                        title:'抢答游泳知识，赢取健康大礼！我答了'+ resx +'分快来一起领礼包！' , // 分享标题
+                        desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                        link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                        imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+                            alert('分享成功');
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                            alert('取消分享');
+                        }
+                    });
+                    wx.onMenuShareQZone({
+                        title:'抢答游泳知识，赢取健康大礼！我答了'+ resx +'分快来一起领礼包！' , // 分享标题
+                        desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                        link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                        imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+                            alert('分享成功');
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                            alert('取消分享');
+                        }
+                    });
+                    //分享朋友圈
+                    wx.onMenuShareAppMessage({
+                        title:'抢答游泳知识，赢取健康大礼！我答了'+ resx +'分快来一起领礼包！' , // 分享标题
+                        desc: "长体育知识，享美好生活。快来参加健康陕西问答吧！", // 分享描述
+                        link: 'http://www.jksxr.cn/staticpage/swimming/index.html', // 分享链接
+                        imgUrl: 'http://www.jksxr.cn/site/jksx/test/fewa.jpg', // "图片链接地址1";
+                        type: 'link', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+                            alert('分享成功');
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                            alert('取消分享');
+                        }
+                    });
+
+                });
+                //	wx.error(function(res) {
+                //				alert(res.errMsg); // 正式环境记得关闭啊！！！！
+                //				});
+            }
+        });
+
+    })
+
+
+    //$("cct").tabs(
+    //    "div.css-panes > div",
+    //    {effect: 'ajax', history: true}
+    //  );
+    //
+    //
+
+</script>
+</body>
+
+</html>
+
+
